@@ -17,7 +17,8 @@ namespace QuadroSoft.Enose.DataModel
         double fullLength, Interval;
         bool isMeasured;
         Mask mask;
-        int longitude, latitude;
+        string longitude, latitude;
+        public int quality;
 
         public MeasureData(
             Dictionary< Sensor, List<PointD>> data, 
@@ -30,8 +31,8 @@ namespace QuadroSoft.Enose.DataModel
             double Interval,
             bool isMeasured,
             Mask mask,
-            int lng,
-            int ltt
+            string lng,
+            string ltt
             )
 
         {
@@ -67,8 +68,8 @@ namespace QuadroSoft.Enose.DataModel
             double Interval,
             bool isMeasured,
             Mask mask,
-            int lng,
-            int ltt
+            string lng,
+            string ltt
             )
         {
             Dictionary<Sensor, List<PointD>> measdata = new Dictionary<Sensor, List<PointD>>();
@@ -126,13 +127,13 @@ namespace QuadroSoft.Enose.DataModel
             set { name = value; }
         }
 
-        public int lng
+        public string lng
         {
             get { return longitude; }
             set { longitude = value; }
         }
 
-        public int ltt
+        public string ltt
         {
             get { return latitude; }
             set { latitude = value; }
@@ -461,7 +462,7 @@ namespace QuadroSoft.Enose.DataModel
                     }
                 }
 
-                MeasureData dat = new MeasureData(data, -1, name, start, desc, gid, length, 1, isMeasured, m,0,0);
+                MeasureData dat = new MeasureData(data, -1, name, start, desc, gid, length, 1, isMeasured, m,"0","0");
                 dat.DispData = dispdata;
                 return dat;
             }

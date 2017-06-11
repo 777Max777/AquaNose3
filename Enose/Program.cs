@@ -532,7 +532,14 @@ namespace QuadroSoft.Enose
 
 
         }
-
+        public static void setMap(string longitude, string latitude)
+        {
+            if (longitude != null && latitude != null)
+            {
+                //Presets.MainWin.webBrowser1.Document.GetElementById("lat").SetAttribute("value", latitude);
+                //Presets.MainWin.webBrowser1.Document.GetElementById("lng").SetAttribute("value", longitude);
+            }
+        }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

@@ -37,18 +37,18 @@
             this.checkedListBoxSensors = new System.Windows.Forms.CheckedListBox();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.multiGraph = new QuadroSoft.Enose.Graph.MultiGraph();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
-            this.movableGraphMedian = new QuadroSoft.Enose.Graph.MovableGraph();
             this.labelSen = new System.Windows.Forms.Label();
             this.comboBoxMasks = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxAlgs = new System.Windows.Forms.GroupBox();
             this.buttonMiddle = new System.Windows.Forms.Button();
             this.buttonStat = new System.Windows.Forms.Button();
+            this.multiGraph = new QuadroSoft.Enose.Graph.MultiGraph();
+            this.movableGraphMedian = new QuadroSoft.Enose.Graph.MovableGraph();
             this.groupBoxMeasures.SuspendLayout();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -124,9 +124,9 @@
             // 
             // splitContainer
             // 
-            this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer.Location = new System.Drawing.Point(205, 3);
             this.splitContainer.Name = "splitContainer";
@@ -153,26 +153,16 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.multiGraph);
             this.panel1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(752, 728);
+            this.panel1.Size = new System.Drawing.Size(752, 729);
             this.panel1.TabIndex = 1;
-            // 
-            // multiGraph
-            // 
-            this.multiGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.multiGraph.Location = new System.Drawing.Point(3, 3);
-            this.multiGraph.Name = "multiGraph";
-            this.multiGraph.Plotters = ((System.Collections.Generic.Dictionary<object, System.Windows.Forms.UserControl>)(resources.GetObject("multiGraph.Plotters")));
-            this.multiGraph.Size = new System.Drawing.Size(746, 69);
-            this.multiGraph.TabIndex = 0;
             // 
             // label2
             // 
@@ -182,7 +172,7 @@
             this.label2.Size = new System.Drawing.Size(313, 28);
             this.label2.TabIndex = 4;
             this.label2.Text = "Данное измерение не является статистически надёжным\r\nи не содержит статистических" +
-                " данных";
+    " данных";
             // 
             // textBoxName
             // 
@@ -210,18 +200,6 @@
             this.label.Size = new System.Drawing.Size(200, 18);
             this.label.TabIndex = 1;
             this.label.Text = "Усреднённое измерение";
-            // 
-            // movableGraphMedian
-            // 
-            this.movableGraphMedian.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.movableGraphMedian.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.movableGraphMedian.Correcture = 0;
-            this.movableGraphMedian.Location = new System.Drawing.Point(3, 61);
-            this.movableGraphMedian.Mask = null;
-            this.movableGraphMedian.MinimumSize = new System.Drawing.Size(555, 202);
-            this.movableGraphMedian.Name = "movableGraphMedian";
-            this.movableGraphMedian.Size = new System.Drawing.Size(700, 215);
-            this.movableGraphMedian.TabIndex = 0;
             // 
             // labelSen
             // 
@@ -283,6 +261,28 @@
             this.buttonStat.Text = "Сравнение измерений";
             this.buttonStat.UseVisualStyleBackColor = true;
             this.buttonStat.Click += new System.EventHandler(this.buttonStart_Click);
+            // 
+            // multiGraph
+            // 
+            this.multiGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.multiGraph.Location = new System.Drawing.Point(3, 3);
+            this.multiGraph.Name = "multiGraph";
+            this.multiGraph.Plotters = ((System.Collections.Generic.Dictionary<object, System.Windows.Forms.UserControl>)(resources.GetObject("multiGraph.Plotters")));
+            this.multiGraph.Size = new System.Drawing.Size(746, 69);
+            this.multiGraph.TabIndex = 0;
+            // 
+            // movableGraphMedian
+            // 
+            this.movableGraphMedian.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.movableGraphMedian.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.movableGraphMedian.Correcture = 0D;
+            this.movableGraphMedian.Location = new System.Drawing.Point(3, 61);
+            this.movableGraphMedian.Mask = null;
+            this.movableGraphMedian.MinimumSize = new System.Drawing.Size(555, 202);
+            this.movableGraphMedian.Name = "movableGraphMedian";
+            this.movableGraphMedian.Size = new System.Drawing.Size(700, 215);
+            this.movableGraphMedian.TabIndex = 0;
             // 
             // FormProcessMeasures
             // 

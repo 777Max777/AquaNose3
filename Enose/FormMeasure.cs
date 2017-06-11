@@ -20,8 +20,8 @@ namespace QuadroSoft.Enose
         string name;
         Mask mask;
         MeasureData measureData;
-        int longitude;
-        int latitude;
+        string longitude;
+        string latitude;
 
 
         private FormMeasure()
@@ -37,7 +37,7 @@ namespace QuadroSoft.Enose
         /// <param name="prof">профиль измерения</param>
         /// <param name="init">инициализирующие значения</param>
         /// <param name="mask">маска по умолчанию</param>
-        public FormMeasure(double length, string name, MeasureProfile prof, double[] init, Mask mask, int lng, int ltt)
+        public FormMeasure(double length, string name, MeasureProfile prof, double[] init, Mask mask, string lng, string ltt)
         {
             this.prof = prof;
             this.length = length;

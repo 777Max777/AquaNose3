@@ -27,6 +27,10 @@ namespace QuadroSoft.Enose.Graph
                 this.mask = measureData.DefaultMask;
                 plotter.Viewport = new RectangleD(0, -100, measureData.FullMeasureLength + 0.5d, 200);
                 plotter.Label = measureData.ToString();
+                if(measureData.quality != -1)
+                {
+                    comboBox1.SelectedIndex = measureData.quality;
+                }
                 RePlot();
             }
         }
@@ -39,6 +43,10 @@ namespace QuadroSoft.Enose.Graph
                 this.mask = data.DefaultMask;
                 plotter.Viewport = new RectangleD(0, -100, data.FullMeasureLength + 0.5d, 200);
                 plotter.Label = data.ToString();
+                if (data.quality != -1)
+                {
+                    comboBox1.SelectedIndex = data.quality;
+                }
                 RePlot();
             }
         }

@@ -33,6 +33,7 @@
             this.buttonCan = new System.Windows.Forms.Button();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.plotter = new GUI.Plotter();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericCorrecture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,14 +101,27 @@
             // plotter
             // 
             this.plotter.Adjusting = true;
-            this.plotter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.plotter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.plotter.AxesColor = System.Drawing.Color.Black;
+            this.plotter.BaseValue = 0D;
+            this.plotter.CornerLabel = "";
             this.plotter.CtrlPressed = false;
+            this.plotter.CurveColor = new System.Drawing.Color[] {
+        System.Drawing.Color.Red,
+        System.Drawing.Color.Orange,
+        System.Drawing.Color.Lime,
+        System.Drawing.Color.DarkGreen,
+        System.Drawing.Color.LightBlue,
+        System.Drawing.Color.Purple,
+        System.Drawing.Color.DeepPink,
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Aquamarine};
             this.plotter.Data = null;
             this.plotter.DotColor = System.Drawing.Color.OrangeRed;
             this.plotter.DownLabel = "";
+            this.plotter.DrawBaseLine = false;
             this.plotter.DrawExtremum = false;
             this.plotter.DrawPoints = false;
             this.plotter.DrawVertical = true;
@@ -120,6 +134,7 @@
             this.plotter.MinimumSize = new System.Drawing.Size(110, 140);
             this.plotter.Name = "plotter";
             this.plotter.PenWidth = 1;
+            this.plotter.ReactOnScroll = true;
             this.plotter.SelectingColor = System.Drawing.Color.Gray;
             this.plotter.ShiftPressed = false;
             this.plotter.Size = new System.Drawing.Size(733, 193);
@@ -128,12 +143,25 @@
             this.plotter.Xtext = "с";
             this.plotter.Ytext = "Гц";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Зелёный",
+            "Желтый",
+            "Красный"});
+            this.comboBox1.Location = new System.Drawing.Point(480, 209);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(154, 21);
+            this.comboBox1.TabIndex = 5;
+            // 
             // MovableGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.buttonCan);
             this.Controls.Add(this.labelCorr);
@@ -155,5 +183,6 @@
         private System.Windows.Forms.Label labelCorr;
         private System.Windows.Forms.Button buttonCan;
         private System.Windows.Forms.Button buttonOpen;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

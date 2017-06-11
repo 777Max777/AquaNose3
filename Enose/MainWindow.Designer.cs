@@ -41,22 +41,22 @@
             this.редактированиеПрофилейИзмеренийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.импортЭкспортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьИзXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выгрузитьВXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.measureTree = new QuadroSoft.Enose.Graph.MeasureTree();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.multiGraph = new QuadroSoft.Enose.Graph.MultiGraph();
             this.label1 = new System.Windows.Forms.Label();
             this.labelProfile = new System.Windows.Forms.Label();
             this.comboBoxProfiles = new System.Windows.Forms.ComboBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.выгрузитьВXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.measureTree = new QuadroSoft.Enose.Graph.MeasureTree();
-            this.multiGraph = new QuadroSoft.Enose.Graph.MultiGraph();
             this.menuStrip.SuspendLayout();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -158,6 +158,13 @@
             this.загрузитьИзXMLToolStripMenuItem.Text = "Импорт из Exel";
             this.загрузитьИзXMLToolStripMenuItem.Click += new System.EventHandler(this.загрузитьИзXMLToolStripMenuItem_Click);
             // 
+            // выгрузитьВXMLToolStripMenuItem
+            // 
+            this.выгрузитьВXMLToolStripMenuItem.Name = "выгрузитьВXMLToolStripMenuItem";
+            this.выгрузитьВXMLToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.выгрузитьВXMLToolStripMenuItem.Text = "Экспорт в Exel";
+            this.выгрузитьВXMLToolStripMenuItem.Click += new System.EventHandler(this.выгрузитьВXMLToolStripMenuItem_Click);
+            // 
             // splitContainer
             // 
             this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -180,6 +187,18 @@
             this.splitContainer.SplitterDistance = 312;
             this.splitContainer.TabIndex = 4;
             // 
+            // measureTree
+            // 
+            this.measureTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.measureTree.Location = new System.Drawing.Point(0, 0);
+            this.measureTree.MinimumSize = new System.Drawing.Size(310, 300);
+            this.measureTree.Name = "measureTree";
+            this.measureTree.ShowMeasures = true;
+            this.measureTree.Size = new System.Drawing.Size(312, 673);
+            this.measureTree.TabIndex = 0;
+            // 
             // tabControl1
             // 
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -196,9 +215,18 @@
             this.tabControl1.Size = new System.Drawing.Size(907, 670);
             this.tabControl1.TabIndex = 6;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(899, 632);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "Показатели";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.webBrowser1);
+            this.tabPage3.Controls.Add(webBrowser1);
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -207,6 +235,16 @@
             this.tabPage3.Text = "Карта";
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Enter += new System.EventHandler(this.tabPage3_Enter);
+            // 
+            // webBrowser1
+            // 
+            webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            webBrowser1.Location = new System.Drawing.Point(3, 3);
+            webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            webBrowser1.Name = "webBrowser1";
+            webBrowser1.Size = new System.Drawing.Size(893, 626);
+            webBrowser1.TabIndex = 0;
+            webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // tabPage1
             // 
@@ -229,6 +267,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(893, 626);
             this.panel1.TabIndex = 5;
+            // 
+            // multiGraph
+            // 
+            this.multiGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.multiGraph.BackColor = System.Drawing.SystemColors.Control;
+            this.multiGraph.Location = new System.Drawing.Point(0, 50);
+            this.multiGraph.Name = "multiGraph";
+            this.multiGraph.Plotters = ((System.Collections.Generic.Dictionary<object, System.Windows.Forms.UserControl>)(resources.GetObject("multiGraph.Plotters")));
+            this.multiGraph.Size = new System.Drawing.Size(890, 69);
+            this.multiGraph.TabIndex = 1;
             // 
             // label1
             // 
@@ -268,55 +317,6 @@
             // 
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(3, 3);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(893, 626);
-            this.webBrowser1.TabIndex = 0;
-            this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 34);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(899, 632);
-            this.tabPage2.TabIndex = 3;
-            this.tabPage2.Text = "Показатели";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // выгрузитьВXMLToolStripMenuItem
-            // 
-            this.выгрузитьВXMLToolStripMenuItem.Name = "выгрузитьВXMLToolStripMenuItem";
-            this.выгрузитьВXMLToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.выгрузитьВXMLToolStripMenuItem.Text = "Экспорт в Exel";
-            this.выгрузитьВXMLToolStripMenuItem.Click += new System.EventHandler(this.выгрузитьВXMLToolStripMenuItem_Click);
-            // 
-            // measureTree
-            // 
-            this.measureTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.measureTree.Location = new System.Drawing.Point(0, 0);
-            this.measureTree.MinimumSize = new System.Drawing.Size(310, 300);
-            this.measureTree.Name = "measureTree";
-            this.measureTree.ShowMeasures = true;
-            this.measureTree.Size = new System.Drawing.Size(312, 673);
-            this.measureTree.TabIndex = 0;
-            // 
-            // multiGraph
-            // 
-            this.multiGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.multiGraph.BackColor = System.Drawing.SystemColors.Control;
-            this.multiGraph.Location = new System.Drawing.Point(0, 50);
-            this.multiGraph.Name = "multiGraph";
-            this.multiGraph.Plotters = ((System.Collections.Generic.Dictionary<object, System.Windows.Forms.UserControl>)(resources.GetObject("multiGraph.Plotters")));
-            this.multiGraph.Size = new System.Drawing.Size(890, 69);
-            this.multiGraph.TabIndex = 1;
             // 
             // MainWindow
             // 
@@ -377,7 +377,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        public static System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ToolStripMenuItem выгрузитьВXMLToolStripMenuItem;
     }

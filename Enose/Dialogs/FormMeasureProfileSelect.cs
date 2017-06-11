@@ -17,15 +17,15 @@ namespace QuadroSoft.Enose.Dialogs
 
         MapMarker localeProb;
         ReopenMap curr_coordinate;
-        int longitude, latitude;
+        string longitude, latitude;
 
-        public int lng
+        public string lng
         {
             get { return longitude; }
             set { longitude = value; }
         }
 
-        public int ltt
+        public string ltt
         {
             get { return latitude; }
             set { latitude = value; }
@@ -403,8 +403,8 @@ namespace QuadroSoft.Enose.Dialogs
                 }
                 else
                     usedProfile = curr;
-                longitude = Convert.ToInt32(textBox6.Text);
-                latitude = Convert.ToInt32(textBox7.Text);
+                longitude = textBox6.Text;
+                latitude = textBox7.Text;
                 Program.Presets.CurrentProfile = curr;
                 DialogResult = DialogResult.OK;
                 Close();
@@ -551,6 +551,76 @@ namespace QuadroSoft.Enose.Dialogs
             string Out = sr.ReadToEnd();
             sr.Close();
             return Out;
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void FormMeasureProfileSelect_FormClosing(object sender, FormClosingEventArgs e)

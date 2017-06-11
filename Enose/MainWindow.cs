@@ -19,7 +19,33 @@ namespace QuadroSoft.Enose
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();            
+                string curDir = Directory.GetCurrentDirectory();
+                try
+                {
+                    webBrowser1.Navigate(new Uri(String.Format("file:///{0}/PageMap.html", curDir)));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }            
+         }
+
+       
+
+        public static void setMap(string longitude, string latitude)
+        {
+            if (longitude != null && latitude != null)
+            {
+                webBrowser1.Document.GetElementById("lat").SetAttribute("value", latitude);
+                webBrowser1.Document.GetElementById("lng").SetAttribute("value", longitude);
+            }
+            else
+            {
+                webBrowser1.Document.GetElementById("lat").SetAttribute("value", "");
+                webBrowser1.Document.GetElementById("lng").SetAttribute("value", "");
+            }
+            webBrowser1.Document.GetElementById("btn").InvokeMember("click");
         }
 
         /// <summary>
@@ -420,9 +446,12 @@ namespace QuadroSoft.Enose
 
         private void tabPage3_Enter(object sender, EventArgs e)
         {
-
-            this.webBrowser1.Navigate("file:///C:/Users/necha/Documents/AquaNose/Enose/Maps/PageMap.html");
         
+        }
+
+        private void measureTree1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ёптыть");
         }
     }
 }

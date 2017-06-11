@@ -16,6 +16,11 @@ namespace QuadroSoft.Enose
 {
     public partial class FormViewMeasure : Form
     {
+
+        MapMarker localeProb;
+        ReopenMap curr_coordinate;
+        string longitude, latitude;
+
         private double zoom = 1.3d;
 
         private MeasureData measureData;
@@ -357,6 +362,10 @@ namespace QuadroSoft.Enose
                         }
           
                 plotter.Viewport = new RectangleD(0, 1000000, measureData.FullMeasureLength + 0.5d, 200);
+                if (data.quality != -1)
+                {
+                    comboBox1.SelectedIndex = data.quality;
+                }
                 RePlot();
                 btnFit_Click(null, null); 
                 button1_Click(null, null);
@@ -404,6 +413,7 @@ namespace QuadroSoft.Enose
             }
             else
             {
+                //Data.quality = comboBox1.SelectedIndex;
                 Program.DataProvider.updateMeasureData(Data);
             }
         }
@@ -522,8 +532,15 @@ namespace QuadroSoft.Enose
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            longitude = textBox6.Text;
+            latitude = textBox7.Text;
             if (saved)
+            {
+                Data.quality = comboBox1.SelectedIndex;
+                Data.lng = longitude;
+                Data.ltt = latitude;
                 Program.DataProvider.updateMeasureData(Data);
+            }
             else
             {
                 if (MessageBox.Show("Сохранить измерение\r\n'" + Data.ToString() + "'?", "Сохранение", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -535,6 +552,9 @@ namespace QuadroSoft.Enose
                         Data.GroupID = -1;
                     try
                     {
+                        measureData.quality = comboBox1.SelectedIndex;
+                        measureData.lng = longitude;
+                        measureData.ltt = latitude;
                         int id = Program.DataProvider.insertMeasureData(measureData);
                         saved = true;
                         measureData = Program.DataProvider.getMeasureDataByID(id);
@@ -822,6 +842,65 @@ namespace QuadroSoft.Enose
             fe.extendedPlotterBoxN.Refresh();
          
             fe.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            textBox6.Clear();
+            textBox7.Clear();
+            localeProb = new MapMarker();
+            localeProb.ShowDialog();
+            textBox6.Text = localeProb.Lng;
+            textBox7.Text = localeProb.Lat;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            curr_coordinate = new ReopenMap(textBox7.Text, textBox6.Text);
+            curr_coordinate.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            textBox6.Clear();
+            textBox7.Clear();
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "")
+            {
+                MessageBox.Show("Введён неполный адресс");
+                return;
+            }
+            string str1 = textBox1.Text + ',' + textBox2.Text + ',' + textBox3.Text + ',' + textBox4.Text + ',' + textBox5.Text;
+            str1 = GET("https://geocode-maps.yandex.ru/1.x", str1);
+            int startIndex = str1.IndexOf("<Point ");
+            int endIndex = str1.IndexOf("</Point>");
+            int length = endIndex - startIndex + 1;
+            string s = str1.Substring(startIndex, length);
+            startIndex = s.IndexOf("<pos>");
+            endIndex = s.LastIndexOf("</pos>");
+            length = endIndex - startIndex + 1;
+            string str2 = s.Substring(startIndex, length);
+            startIndex = str2.IndexOf(">") + 1;
+            endIndex = str2.LastIndexOf("<") - 1;
+            length = endIndex - startIndex + 1;
+            string str3 = str2.Substring(startIndex, length);
+            startIndex = str3.IndexOf(" ");
+            string longitude = str3.Substring(0, startIndex);
+            length = str3.Length - startIndex - 1;
+            string latitude = str3.Substring(startIndex + 1, length);
+
+            textBox6.Text = longitude;
+            textBox7.Text = latitude;
+        }
+
+        private static string GET(string Url, string Data)
+        {
+            System.Net.WebRequest req = System.Net.WebRequest.Create(Url + "?geocode=" + Data);
+            System.Net.WebResponse resp = req.GetResponse();
+            System.IO.Stream stream = resp.GetResponseStream();
+            System.IO.StreamReader sr = new System.IO.StreamReader(stream);
+            string Out = sr.ReadToEnd();
+            sr.Close();
+            return Out;
         }
     }
 }

@@ -368,6 +368,7 @@
             this.label11.Size = new System.Drawing.Size(56, 16);
             this.label11.TabIndex = 14;
             this.label11.Text = "Широта";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // textBox7
             // 
@@ -375,6 +376,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(291, 22);
             this.textBox7.TabIndex = 13;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label10
             // 
@@ -384,6 +386,7 @@
             this.label10.Size = new System.Drawing.Size(64, 16);
             this.label10.TabIndex = 12;
             this.label10.Text = "Долгота";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // textBox6
             // 
@@ -391,6 +394,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(291, 22);
             this.textBox6.TabIndex = 11;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // button1
             // 
@@ -410,6 +414,7 @@
             this.label9.Size = new System.Drawing.Size(32, 16);
             this.label9.TabIndex = 9;
             this.label9.Text = "Дом";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // textBox5
             // 
@@ -417,6 +422,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(405, 22);
             this.textBox5.TabIndex = 8;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // label8
             // 
@@ -426,6 +432,7 @@
             this.label8.Size = new System.Drawing.Size(48, 16);
             this.label8.TabIndex = 7;
             this.label8.Text = "Улица";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // textBox4
             // 
@@ -433,6 +440,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(405, 22);
             this.textBox4.TabIndex = 6;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label7
             // 
@@ -442,6 +450,7 @@
             this.label7.Size = new System.Drawing.Size(184, 16);
             this.label7.TabIndex = 5;
             this.label7.Text = "Город/населённый пункт";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // textBox3
             // 
@@ -449,6 +458,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(405, 22);
             this.textBox3.TabIndex = 4;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label6
             // 
@@ -458,6 +468,7 @@
             this.label6.Size = new System.Drawing.Size(56, 16);
             this.label6.TabIndex = 3;
             this.label6.Text = "Регион";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // textBox2
             // 
@@ -465,6 +476,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(405, 22);
             this.textBox2.TabIndex = 2;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label5
             // 
@@ -474,6 +486,7 @@
             this.label5.Size = new System.Drawing.Size(56, 16);
             this.label5.TabIndex = 1;
             this.label5.Text = "Страна";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBox1
             // 
@@ -482,6 +495,7 @@
             this.textBox1.Size = new System.Drawing.Size(405, 22);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Россия";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // FormMeasureProfileSelect
             // 

@@ -158,6 +158,25 @@ namespace QuadroSoft.Enose.Graph
         {
             if (e.Button == MouseButtons.Right || e.Button == MouseButtons.Left)
                 treeView.SelectedNode = e.Node;
+            if (e.Node.Tag != null)
+            {
+                TreeNode treeNode = e.Node;
+                int count = treeNode.GetNodeCount(true);
+                if (count != 0)
+                {
+                    foreach (TreeNode tn in treeNode.Nodes)
+                    {
+                        MessageBox.Show(Convert.ToString(tn.Tag));
+                    }
+                }
+                else
+                {
+                    MeasureData mdata = Program.DataProvider.getMeasureDataByID((int)treeView.SelectedNode.Tag);
+                    MainWindow.setMap(mdata.lng, mdata.ltt);
+                }
+                //FormViewMeasure f = FormViewMeasure.getFormForMeasure(Program.DataProvider.getMeasureDataByID((int)treeView.SelectedNode.Tag));
+
+            }
         }
 
         private void buttonReload_Click(object sender, EventArgs e)

@@ -272,14 +272,17 @@ namespace QuadroSoft.Enose.DataAccess
 
                 int MaskId = (reader["DefaultMask"] != DBNull.Value) ? (int)reader["DefaultMask"] : -1;
 
-                int Coordinate = (reader["Coordinate"] != DBNull.Value) ? (int)reader["DefaultMask"] : -1;
+                int Coordinate = (reader["Coordinate"] != DBNull.Value) ? (int)reader["Coordinate"] : -1;
+
+                int quality = (reader["Quality"] != DBNull.Value) ? (int)reader["Quality"] : -1;
 
                 reader.Close();
 
-                int lng = getLongitudeByID(Coordinate);
-                int ltt = getLatitudeByID(Coordinate);
+                string lng = getLongitudeByID(Coordinate);
+                string ltt = getLatitudeByID(Coordinate);
 
                 measureData = new MeasureData(data, id, Name, time, Description, GroupId, fullLength, Interval, isMeasured, MaskId >=0 ? getMaskByID(MaskId) : null , lng, ltt);
+                measureData.quality = quality;
                 if (!isMeasured) 
                     measureData.DispData = dispdata;
             }
@@ -294,26 +297,34 @@ namespace QuadroSoft.Enose.DataAccess
 
         public bool updateMeasureData(MeasureData mdata)
         {
+            int id_Adress = 0;
+            if (mdata.lng != "" && mdata.ltt != "")
+            {
+                id_Adress = insertAddress(mdata.lng, mdata.ltt);
+            }
             string query = "UPDATE Measures SET GroupID=" + deNullID(mdata.GroupID);
             query += ", [Name]=" + qouted(mdata.Name);
             query += ", [Description]=" + qouted(mdata.Description);
             query += ", DefaultMask=" + deNullMaskID(mdata.DefaultMask);
+            query += ", Coordinate=" + Convert.ToString(id_Adress);
+            query += ", Quality=" + Convert.ToString(mdata.quality);
             query += " WHERE ID=" + mdata.ID;
             int res = executeNonQuery(query);
             return res == 1;
         }
 
-        public int getLongitudeByID(int id)
+        public string getLongitudeByID(int id)
         {
-            return Convert.ToInt32((string)executeScalar("SELECT Longitude FROM Address WHERE ID = " + id));
+            string response = (string)executeScalar("SELECT Longitude FROM Address WHERE ID = " + Convert.ToString(id));
+            return response;
         }
 
-        public int getLatitudeByID(int id)
+        public string getLatitudeByID(int id)
         {
-            return Convert.ToInt32((string)executeScalar("SELECT Latitude FROM Address WHERE ID = " + id));
+            return (string)executeScalar("SELECT Latitude FROM Address WHERE ID = " + Convert.ToString(id));
         }
 
-        public int insertAddress(int lng, int ltt)
+        public int insertAddress(string lng, string ltt)
         {
             string query = "INSERT INTO Address(Longitude, Latitude) VALUES('" + Convert.ToString(lng) + "','" + Convert.ToString(ltt) + "')";
             if (!(executeNonQuery(query) > 0)) return -1;
@@ -324,7 +335,7 @@ namespace QuadroSoft.Enose.DataAccess
         {
             string query;
             int id_Adress = 0;
-            if(mdata.lng != 0 && mdata.ltt != 0)
+            if(mdata.lng != "" && mdata.ltt != "")
             {
                 id_Adress = insertAddress(mdata.lng, mdata.ltt);
             }
@@ -332,7 +343,7 @@ namespace QuadroSoft.Enose.DataAccess
             int mid = -1;
             try
             {
-                query = "INSERT INTO Measures ([Name], StartTime, Description, IsMeasured, GroupID, FullLength, Interval, DefaultMask, Coordinate) VALUES ";
+                query = "INSERT INTO Measures ([Name], StartTime, Description, IsMeasured, GroupID, FullLength, Interval, DefaultMask, Coordinate, Quality) VALUES ";
                 query += "(";
                 query += qouted(mdata.Name) + ",";
                 query += qouted(mdata.StartTime.ToString("yyyyMMdd HH:mm:ss")) + ", ";
@@ -343,6 +354,7 @@ namespace QuadroSoft.Enose.DataAccess
                 query += "" + mdata.MeasureInterval.ToString().Replace(ServiceFunctions.rightsep, ServiceFunctions.wrongsep) + ", ";
                 query += "" + deNullMaskID(mdata.DefaultMask) + ", ";
                 query += "" + Convert.ToString(id_Adress);
+                query += "" + Convert.ToString(mdata.quality);
                 query += ")";
 
                 if (!(executeNonQuery(query) > 0)) return -1;
@@ -618,8 +630,8 @@ namespace QuadroSoft.Enose.DataAccess
                 bool IsMeasured = Convert.ToBoolean(reader["IsMeasured"]);
                 int flen = (int)((double)reader["FullLength"]);
                 int Coordinate = (reader["Coordinate"] != DBNull.Value) ? (int)reader["Coordinate"] : -1;
-                int lng = getLongitudeByID(Coordinate);
-                int ltt = getLatitudeByID(Coordinate);
+                string lng = getLongitudeByID(Coordinate);
+                string ltt = getLatitudeByID(Coordinate);
                 MeasureData md = new MeasureData(new Dictionary<Sensor, List<PointD>>(), id, name, dt, "", -1, flen, 1, IsMeasured, null, lng, ltt);
                 if (statMeasures.Contains(id))
                 {

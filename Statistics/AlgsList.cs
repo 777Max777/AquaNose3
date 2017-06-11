@@ -218,7 +218,7 @@ namespace QuadroSoft.Enose.Statistics
 
             #endregion 
 
-            MeasureData mdata = new MeasureData(newdata, -1, measureName, DateTime.Now, "", -1, length, 1, false, mask,-1,-1);
+            MeasureData mdata = new MeasureData(newdata, -1, measureName, DateTime.Now, "", -1, length, 1, false, mask,"-1","-1");
             mdata.DispData = newdispdata;
             return mdata;
         }

@@ -11,7 +11,6 @@ namespace QuadroSoft.Enose
 {
     public partial class ReopenMap : Form
     {
-
         private string latitude;
         private string longitude;
 
@@ -21,10 +20,6 @@ namespace QuadroSoft.Enose
             longitude = lng;
 
             InitializeComponent();
-        }
-
-        private void ReopenMap_Load(object sender, EventArgs e)
-        {
             string curDir = Directory.GetCurrentDirectory();
             try
             {
@@ -34,13 +29,13 @@ namespace QuadroSoft.Enose
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             WebBro.Document.GetElementById("lat").SetAttribute("value", latitude);
             WebBro.Document.GetElementById("lng").SetAttribute("value", longitude);
+            WebBro.Document.GetElementById("btn").InvokeMember("click");
         }
     }
 }
