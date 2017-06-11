@@ -33,19 +33,31 @@ namespace QuadroSoft.Enose
 
        
 
-        public static void setMap(string longitude, string latitude)
+        public static void setMap(string longitude, string latitude, int quality)
         {
             if (longitude != null && latitude != null)
             {
                 webBrowser1.Document.GetElementById("lat").SetAttribute("value", latitude);
                 webBrowser1.Document.GetElementById("lng").SetAttribute("value", longitude);
+                if(quality == 0)
+                {
+                    webBrowser1.Document.GetElementById("green").SetAttribute("checked", "true"); 
+                }
+                else if(quality == 1)
+                {
+                    webBrowser1.Document.GetElementById("yellow").SetAttribute("checked", "true");
+                }
+                else
+                {
+                    webBrowser1.Document.GetElementById("red").SetAttribute("checked", "true");
+                }
             }
             else
             {
                 webBrowser1.Document.GetElementById("lat").SetAttribute("value", "");
                 webBrowser1.Document.GetElementById("lng").SetAttribute("value", "");
             }
-            webBrowser1.Document.GetElementById("btn").InvokeMember("click");
+            webBrowser1.Document.GetElementById("btnColor").InvokeMember("click");
         }
 
         /// <summary>

@@ -29,10 +29,48 @@ function codeAddressMy() {
             map: map
         });
     }
-    
-    
-    
-    
 }
+
+    function codeAddressWithColor() {
+        var latitude = document.getElementById('lat').value;
+        var longitude = document.getElementById('lng').value;
+        if (latitude == "" || longitude == "") {
+            if (marker) {
+                marker.setMap(null);
+            }
+        }
+        else {
+            if (marker) {
+                marker.setMap(null);
+            }
+            var myLatlng = new google.maps.LatLng(latitude, longitude);
+            map.setCenter(myLatlng);
+            var rad = document.getElementsByName("flag")
+            if (rad[0].checked) {
+                marker = new google.maps.Marker({
+                    map: map,
+                    position: myLatlng,
+                    icon: "resources/red.png"
+                });
+            }
+            if (rad[1].checked) {
+                marker = new google.maps.Marker({
+                    map: map,
+                    position: myLatlng,
+                    icon: "resources/green.png"
+                });
+            }
+            if (rad[2].checked) {
+                marker = new google.maps.Marker({
+                    map: map,
+                    position: myLatlng,
+                    icon: "resources/yellow.png"
+                });
+            }
+        }            
+    } 
+    
+    
+
 
 

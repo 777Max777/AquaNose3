@@ -366,6 +366,8 @@ namespace QuadroSoft.Enose
                 {
                     comboBox1.SelectedIndex = data.quality;
                 }
+                textBox6.Text = data.lng;
+                textBox7.Text = data.ltt;
                 RePlot();
                 btnFit_Click(null, null); 
                 button1_Click(null, null);

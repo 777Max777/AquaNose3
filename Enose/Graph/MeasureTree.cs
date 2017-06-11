@@ -172,7 +172,7 @@ namespace QuadroSoft.Enose.Graph
                 else
                 {
                     MeasureData mdata = Program.DataProvider.getMeasureDataByID((int)treeView.SelectedNode.Tag);
-                    MainWindow.setMap(mdata.lng, mdata.ltt);
+                    MainWindow.setMap(mdata.lng, mdata.ltt, mdata.quality);
                 }
                 //FormViewMeasure f = FormViewMeasure.getFormForMeasure(Program.DataProvider.getMeasureDataByID((int)treeView.SelectedNode.Tag));
 

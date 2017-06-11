@@ -302,15 +302,29 @@ namespace QuadroSoft.Enose.DataAccess
             {
                 id_Adress = insertAddress(mdata.lng, mdata.ltt);
             }
-            string query = "UPDATE Measures SET GroupID=" + deNullID(mdata.GroupID);
-            query += ", [Name]=" + qouted(mdata.Name);
-            query += ", [Description]=" + qouted(mdata.Description);
-            query += ", DefaultMask=" + deNullMaskID(mdata.DefaultMask);
-            query += ", Coordinate=" + Convert.ToString(id_Adress);
-            query += ", Quality=" + Convert.ToString(mdata.quality);
-            query += " WHERE ID=" + mdata.ID;
-            int res = executeNonQuery(query);
-            return res == 1;
+            if(id_Adress != 0)
+            {
+                string query = "UPDATE Measures SET GroupID=" + deNullID(mdata.GroupID);
+                query += ", [Name]=" + qouted(mdata.Name);
+                query += ", [Description]=" + qouted(mdata.Description);
+                query += ", DefaultMask=" + deNullMaskID(mdata.DefaultMask);
+                query += ", Coordinate=" + Convert.ToString(id_Adress);
+                query += ", Quality=" + Convert.ToString(mdata.quality);
+                query += " WHERE ID=" + mdata.ID;
+                int res = executeNonQuery(query);
+                return res == 1;
+            }
+            else
+            {
+                string query = "UPDATE Measures SET GroupID=" + deNullID(mdata.GroupID);
+                query += ", [Name]=" + qouted(mdata.Name);
+                query += ", [Description]=" + qouted(mdata.Description);
+                query += ", DefaultMask=" + deNullMaskID(mdata.DefaultMask);
+                query += ", Quality=" + Convert.ToString(mdata.quality);
+                query += " WHERE ID=" + mdata.ID;
+                int res = executeNonQuery(query);
+                return res == 1;
+            }            
         }
 
         public string getLongitudeByID(int id)
@@ -333,15 +347,13 @@ namespace QuadroSoft.Enose.DataAccess
 
         public int insertMeasureData(MeasureData mdata)
         {
-            string query;
+            string query = "";
             int id_Adress = 0;
             if(mdata.lng != "" && mdata.ltt != "")
             {
                 id_Adress = insertAddress(mdata.lng, mdata.ltt);
             }
-            IDbTransaction tran = connection.BeginTransaction();
-            int mid = -1;
-            try
+            if(id_Adress != 0)
             {
                 query = "INSERT INTO Measures ([Name], StartTime, Description, IsMeasured, GroupID, FullLength, Interval, DefaultMask, Coordinate, Quality) VALUES ";
                 query += "(";
@@ -356,6 +368,26 @@ namespace QuadroSoft.Enose.DataAccess
                 query += "" + Convert.ToString(id_Adress);
                 query += "" + Convert.ToString(mdata.quality);
                 query += ")";
+            }
+            else
+            {
+                query = "INSERT INTO Measures ([Name], StartTime, Description, IsMeasured, GroupID, FullLength, Interval, DefaultMask, Quality) VALUES ";
+                query += "(";
+                query += qouted(mdata.Name) + ",";
+                query += qouted(mdata.StartTime.ToString("yyyyMMdd HH:mm:ss")) + ", ";
+                query += qouted(mdata.Description) + ", ";
+                query += (mdata.IsMeasured ? "1" : "0") + ", ";
+                query += deNullID(mdata.GroupID) + ", ";
+                query += "" + mdata.FullMeasureLength.ToString().Replace(ServiceFunctions.rightsep, ServiceFunctions.wrongsep) + ", ";
+                query += "" + mdata.MeasureInterval.ToString().Replace(ServiceFunctions.rightsep, ServiceFunctions.wrongsep) + ", ";
+                query += "" + deNullMaskID(mdata.DefaultMask) + ", ";
+                query += "" + Convert.ToString(mdata.quality);
+                query += ")";
+            }
+            IDbTransaction tran = connection.BeginTransaction();
+            int mid = -1;
+            try
+            {               
 
                 if (!(executeNonQuery(query) > 0)) return -1;
 
