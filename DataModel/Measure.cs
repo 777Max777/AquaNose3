@@ -207,7 +207,7 @@ namespace QuadroSoft.Enose.DataModel
             }
 
 
-            MeasureData result = new MeasureData(fdata, -1, "", DateTime.Now, "", -1, length, 1, false, mask, "-1", "-1");
+            MeasureData result = new MeasureData(fdata, -1, "", DateTime.Now, "", -1, length, 1, false, mask, "0", "0");
             return result;
         }
 

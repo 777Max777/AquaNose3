@@ -48,6 +48,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -315,6 +317,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.textBox8);
+            this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.label11);
@@ -339,6 +343,24 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Адресс";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(11, 332);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(757, 280);
+            this.textBox8.TabIndex = 18;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(8, 312);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(360, 16);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "Особенности измерения или места забора пробы";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // button3
             // 
@@ -565,5 +587,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label12;
     }
 }

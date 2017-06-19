@@ -26,11 +26,14 @@
     <div> 
         <input id="lng" type="text" name="lng" value="" />
         <input id="lat" type="text" name="lat" />
+        <textarea id="titleOnMark" hidden> </textarea>
         <input id="red" type="radio" name="flag"  value="Red" hidden>
         <input id="green" type="radio" name="flag" value="Green" hidden>
         <input id="yellow" type="radio" name="flag" value="Yellow" hidden>
-        <input id="btnColor" type="button" value="Ok" hidden onclick="codeAddressWithColor()">
+        <input id="btnColor" type="button" value="Поставить маркер с цветом" hidden onclick="codeAddressWithColor()">
         <input id ="btn" type="button" value="Поставить маркер" hidden onclick="codeAddressMy()" />
+        <input id="btnSetTreeTags" type="button" value="Поставить маркер с цветами всей группы" hidden onclick="SetMarkersFromTags()" />
+        <input id="btnDeleteMarkers" type="button" value="Поставить маркер" hidden onclick="deleteAllMarkers()" />
     </div>
 </body>
 </html>

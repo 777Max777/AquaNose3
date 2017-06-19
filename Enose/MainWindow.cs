@@ -31,15 +31,54 @@ namespace QuadroSoft.Enose
                 }            
          }
 
-       
+        public static void ClearMareker()
+        {
+            try
+            {
+                webBrowser1.Document.GetElementById("btnDeleteMarkers").InvokeMember("click");
+            }
+            catch(Exception ex)
+            { }
+            
+        }
 
-        public static void setMap(string longitude, string latitude, int quality)
+        public static void setMarekersToMap(string longitude, string latitude, int quality, string description)
         {
             if (longitude != null && latitude != null)
             {
                 webBrowser1.Document.GetElementById("lat").SetAttribute("value", latitude);
                 webBrowser1.Document.GetElementById("lng").SetAttribute("value", longitude);
-                if(quality == 0)
+                webBrowser1.Document.GetElementById("titleOnMark").SetAttribute("value", description);
+                if (quality == 0)
+                {
+                    webBrowser1.Document.GetElementById("green").SetAttribute("checked", "true");
+                }
+                else if (quality == 1)
+                {
+                    webBrowser1.Document.GetElementById("yellow").SetAttribute("checked", "true");
+                }
+                else
+                {
+                    webBrowser1.Document.GetElementById("red").SetAttribute("checked", "true");
+                }
+            }
+            else
+            {
+                webBrowser1.Document.GetElementById("lat").SetAttribute("value", "");
+                webBrowser1.Document.GetElementById("lng").SetAttribute("value", "");
+                webBrowser1.Document.GetElementById("titleOnMark").SetAttribute("value", description);
+            }            
+            webBrowser1.Document.GetElementById("btnSetTreeTags").InvokeMember("click");
+        }
+
+        public static void setMarekerToMap(string longitude, string latitude, int quality, string description)
+        {
+            if (longitude != null && latitude != null)
+            {
+                webBrowser1.Document.GetElementById("lat").SetAttribute("value", latitude);
+                webBrowser1.Document.GetElementById("lng").SetAttribute("value", longitude);
+                webBrowser1.Document.GetElementById("titleOnMark").SetAttribute("value", description);
+                if (quality == 0)
                 {
                     webBrowser1.Document.GetElementById("green").SetAttribute("checked", "true"); 
                 }
@@ -56,6 +95,7 @@ namespace QuadroSoft.Enose
             {
                 webBrowser1.Document.GetElementById("lat").SetAttribute("value", "");
                 webBrowser1.Document.GetElementById("lng").SetAttribute("value", "");
+                webBrowser1.Document.GetElementById("titleOnMark").SetAttribute("value", description);
             }
             webBrowser1.Document.GetElementById("btnColor").InvokeMember("click");
         }

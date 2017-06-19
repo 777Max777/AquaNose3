@@ -41,9 +41,9 @@ namespace QuadroSoft.Enose
             richTextBox.AppendText(measureData.Name + "\r\n");
 
             richTextBox.SelectionFont = labelbld.Font;
-            richTextBox.AppendText("Начало измерения: ");
-            richTextBox.SelectionFont = labelnobld.Font;
-            richTextBox.AppendText(measureData.StartTime.ToString("dd/MM/yyyy HH:mm:ss") + "\r\n");
+            //richTextBox.AppendText("Начало измерения: ");
+            //richTextBox.SelectionFont = labelnobld.Font;
+            //richTextBox.AppendText(measureData.StartTime.ToString("dd/MM/yyyy HH:mm:ss") + "\r\n");
             richTextBox.AppendText( "-------------------\r\n");
 
             Dictionary<Sensor, double> st = measureData.StartValues;
@@ -368,6 +368,7 @@ namespace QuadroSoft.Enose
                 }
                 textBox6.Text = data.lng;
                 textBox7.Text = data.ltt;
+                textBox8.Text = data.Description;
                 RePlot();
                 btnFit_Click(null, null); 
                 button1_Click(null, null);
@@ -382,7 +383,7 @@ namespace QuadroSoft.Enose
         public static FormViewMeasure getFormForMeasure(MeasureData data)
         {
             FormViewMeasure form = new FormViewMeasure(data);
-            form.Text = "Просмотр измерения: " + data.ToString() + (data.ID != -1 ? "" : " * ");
+            form.Text = "Просмотр измерения: " + data.Name;// + (data.ID != -1 ? "" : " * ");
             form.ShowReport();
             form.Show();
             return form;
@@ -541,6 +542,7 @@ namespace QuadroSoft.Enose
                 Data.quality = comboBox1.SelectedIndex;
                 Data.lng = longitude;
                 Data.ltt = latitude;
+                Data.Description = textBox8.Text;
                 Program.DataProvider.updateMeasureData(Data);
             }
             else
@@ -555,6 +557,7 @@ namespace QuadroSoft.Enose
                     try
                     {
                         measureData.quality = comboBox1.SelectedIndex;
+                        measureData.Description = textBox8.Text;
                         measureData.lng = longitude;
                         measureData.ltt = latitude;
                         int id = Program.DataProvider.insertMeasureData(measureData);

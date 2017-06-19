@@ -623,6 +623,11 @@ namespace QuadroSoft.Enose.Dialogs
 
         }
 
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void FormMeasureProfileSelect_FormClosing(object sender, FormClosingEventArgs e)
         {
             flagMouseClick = false;

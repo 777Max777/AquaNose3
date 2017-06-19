@@ -1,6 +1,8 @@
 ﻿var geocoder;
 var map;
+var markers = [];
 var marker;
+
 
 function initialize(value) {
     geocoder = new google.maps.Geocoder();
@@ -12,37 +14,48 @@ function initialize(value) {
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
 }
 
+function deleteAllMarkers()
+{
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+}
+
 function codeAddressMy() {
+    deleteAllMarkers();
     var latitude = document.getElementById('lat').value;
     var longitude = document.getElementById('lng').value;
-    if (latitude == "" || longitude == "")
+    var title = document.getElementById('titleOnMark').value;
+    /*if (latitude == "" || longitude == "")
     {
         if (marker) {
             marker.setMap(null);
         }
     }
-    else {
+    else {*/
         var myLatlng = new google.maps.LatLng(latitude, longitude);
         map.setCenter(myLatlng);
         marker = new google.maps.Marker({
             position: myLatlng,
-            map: map
+            map: map,
+            title: title
         });
-    }
+    //}
+        markers.push(marker);
 }
 
-    function codeAddressWithColor() {
+function codeAddressWithColor() {
+        deleteAllMarkers();
         var latitude = document.getElementById('lat').value;
         var longitude = document.getElementById('lng').value;
-        if (latitude == "" || longitude == "") {
-            if (marker) {
-                marker.setMap(null);
-            }
+        var title = document.getElementById('titleOnMark').value;
+        /*if (latitude == "" || longitude == "") {
+            setMapOnAll(null);
         }
         else {
             if (marker) {
                 marker.setMap(null);
-            }
+            }*/
             var myLatlng = new google.maps.LatLng(latitude, longitude);
             map.setCenter(myLatlng);
             var rad = document.getElementsByName("flag")
@@ -50,25 +63,68 @@ function codeAddressMy() {
                 marker = new google.maps.Marker({
                     map: map,
                     position: myLatlng,
-                    icon: "resources/red.png"
+                    icon: "resources/red.png",
+                    title: title
                 });
             }
             if (rad[1].checked) {
                 marker = new google.maps.Marker({
                     map: map,
                     position: myLatlng,
-                    icon: "resources/green.png"
+                    icon: "resources/green.png",
+                    title: title
                 });
             }
             if (rad[2].checked) {
                 marker = new google.maps.Marker({
                     map: map,
                     position: myLatlng,
-                    icon: "resources/yellow.png"
+                    icon: "resources/yellow.png",
+                    title: title
                 });
             }
-        }            
-    } 
+    //}     
+            markers.push(marker);
+    }
+
+function SetMarkersFromTags() {
+        var latitude = document.getElementById('lat').value;
+        var longitude = document.getElementById('lng').value;
+        var title = document.getElementById('titleOnMark').value;
+        /*if (latitude == "" || longitude == "") {
+            setMapOnAll(null);
+        }
+        else {*/
+            var myLatlng = new google.maps.LatLng(latitude, longitude);
+            map.setCenter(myLatlng);
+            var rad = document.getElementsByName("flag")
+            if (rad[0].checked) {
+                marker = new google.maps.Marker({
+                    map: map,
+                    position: myLatlng,
+                    icon: "resources/red.png",
+                    title: title
+                });
+            }
+            if (rad[1].checked) {
+                marker = new google.maps.Marker({
+                    map: map,
+                    position: myLatlng,
+                    icon: "resources/green.png",
+                    title: title
+                });
+            }
+            if (rad[2].checked) {
+                marker = new google.maps.Marker({
+                    map: map,
+                    position: myLatlng,
+                    icon: "resources/yellow.png",
+                    title: title
+                });
+            }
+        //}
+            markers.push(marker);
+    }
     
     
 

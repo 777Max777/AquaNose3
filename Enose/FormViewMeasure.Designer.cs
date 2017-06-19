@@ -66,22 +66,6 @@
             this.plotterBoxMax = new Plotters.PlotterBox();
             this.tabInfo = new System.Windows.Forms.TabPage();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
-            this.checkedListBoxSensors = new System.Windows.Forms.CheckedListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxMask = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBoxArea = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.buttonCSV = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonXML = new System.Windows.Forms.Button();
-            this.dataColors = new System.Windows.Forms.DataGridView();
-            this.Colors = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.label7 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -100,6 +84,24 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkedListBoxSensors = new System.Windows.Forms.CheckedListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxMask = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.textBoxArea = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.buttonCSV = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonXML = new System.Windows.Forms.Button();
+            this.dataColors = new System.Windows.Forms.DataGridView();
+            this.Colors = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabPageRose.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -111,9 +113,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericMaxMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMaxMax)).BeginInit();
             this.tabInfo.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataColors)).BeginInit();
-            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -382,7 +384,7 @@
             this.tabPageLines.Location = new System.Drawing.Point(4, 22);
             this.tabPageLines.Name = "tabPageLines";
             this.tabPageLines.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLines.Size = new System.Drawing.Size(580, 570);
+            this.tabPageLines.Size = new System.Drawing.Size(580, 594);
             this.tabPageLines.TabIndex = 1;
             this.tabPageLines.Text = "График";
             this.tabPageLines.UseVisualStyleBackColor = true;
@@ -481,7 +483,7 @@
             this.tabPageMax.Location = new System.Drawing.Point(4, 22);
             this.tabPageMax.Name = "tabPageMax";
             this.tabPageMax.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMax.Size = new System.Drawing.Size(580, 570);
+            this.tabPageMax.Size = new System.Drawing.Size(580, 594);
             this.tabPageMax.TabIndex = 2;
             this.tabPageMax.Text = "Диаграмма максимумов";
             this.tabPageMax.UseVisualStyleBackColor = true;
@@ -665,7 +667,7 @@
             this.tabInfo.Location = new System.Drawing.Point(4, 22);
             this.tabInfo.Name = "tabInfo";
             this.tabInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInfo.Size = new System.Drawing.Size(580, 570);
+            this.tabInfo.Size = new System.Drawing.Size(580, 594);
             this.tabInfo.TabIndex = 3;
             this.tabInfo.Text = "Сводная информация";
             this.tabInfo.UseVisualStyleBackColor = true;
@@ -682,176 +684,10 @@
             this.richTextBox.TabIndex = 0;
             this.richTextBox.Text = "";
             // 
-            // checkedListBoxSensors
-            // 
-            this.checkedListBoxSensors.CheckOnClick = true;
-            this.checkedListBoxSensors.FormattingEnabled = true;
-            this.checkedListBoxSensors.Location = new System.Drawing.Point(26, 163);
-            this.checkedListBoxSensors.Name = "checkedListBoxSensors";
-            this.checkedListBoxSensors.Size = new System.Drawing.Size(147, 274);
-            this.checkedListBoxSensors.TabIndex = 1;
-            this.checkedListBoxSensors.MouseUp += new System.Windows.Forms.MouseEventHandler(this.checkedListBoxSensors_MouseUp);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1, 147);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Отображаемые сенсоры";
-            // 
-            // comboBoxMask
-            // 
-            this.comboBoxMask.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMask.FormattingEnabled = true;
-            this.comboBoxMask.Location = new System.Drawing.Point(6, 27);
-            this.comboBoxMask.Name = "comboBoxMask";
-            this.comboBoxMask.Size = new System.Drawing.Size(168, 21);
-            this.comboBoxMask.TabIndex = 3;
-            this.comboBoxMask.SelectedIndexChanged += new System.EventHandler(this.comboBoxMask_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Временная маска";
-            // 
-            // panel
-            // 
-            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel.Controls.Add(this.comboBox1);
-            this.panel.Controls.Add(this.label7);
-            this.panel.Controls.Add(this.button5);
-            this.panel.Controls.Add(this.textBoxArea);
-            this.panel.Controls.Add(this.label6);
-            this.panel.Controls.Add(this.buttonCSV);
-            this.panel.Controls.Add(this.buttonSave);
-            this.panel.Controls.Add(this.buttonXML);
-            this.panel.Controls.Add(this.dataColors);
-            this.panel.Controls.Add(this.comboBoxMask);
-            this.panel.Controls.Add(this.label1);
-            this.panel.Controls.Add(this.checkedListBoxSensors);
-            this.panel.Controls.Add(this.label2);
-            this.panel.Location = new System.Drawing.Point(591, 34);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(179, 594);
-            this.panel.TabIndex = 5;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Зелёный",
-            "Жёлтый",
-            "Красный"});
-            this.comboBox1.Location = new System.Drawing.Point(7, 110);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(169, 21);
-            this.comboBox1.TabIndex = 12;
-            // 
-            // button5
-            // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(4, 515);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(169, 30);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "Выгрузить в CSV (cp-1251)";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // textBoxArea
-            // 
-            this.textBoxArea.Location = new System.Drawing.Point(7, 71);
-            this.textBoxArea.Name = "textBoxArea";
-            this.textBoxArea.ReadOnly = true;
-            this.textBoxArea.Size = new System.Drawing.Size(167, 20);
-            this.textBoxArea.TabIndex = 10;
-            this.textBoxArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 55);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Площадь отпечатка";
-            // 
-            // buttonCSV
-            // 
-            this.buttonCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCSV.Location = new System.Drawing.Point(4, 479);
-            this.buttonCSV.Name = "buttonCSV";
-            this.buttonCSV.Size = new System.Drawing.Size(169, 30);
-            this.buttonCSV.TabIndex = 8;
-            this.buttonCSV.Text = "Выгрузить в CSV (utf-8)";
-            this.buttonCSV.UseVisualStyleBackColor = true;
-            this.buttonCSV.Click += new System.EventHandler(this.buttonCSV_Click);
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Location = new System.Drawing.Point(5, 557);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(169, 30);
-            this.buttonSave.TabIndex = 7;
-            this.buttonSave.Text = "Сохранить";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // buttonXML
-            // 
-            this.buttonXML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonXML.Location = new System.Drawing.Point(3, 443);
-            this.buttonXML.Name = "buttonXML";
-            this.buttonXML.Size = new System.Drawing.Size(170, 30);
-            this.buttonXML.TabIndex = 6;
-            this.buttonXML.Text = "Выгрузить в XML (utf-8)";
-            this.buttonXML.UseVisualStyleBackColor = true;
-            this.buttonXML.Click += new System.EventHandler(this.buttonXML_Click);
-            // 
-            // dataColors
-            // 
-            this.dataColors.AllowUserToAddRows = false;
-            this.dataColors.AllowUserToDeleteRows = false;
-            this.dataColors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataColors.ColumnHeadersVisible = false;
-            this.dataColors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Colors});
-            this.dataColors.Enabled = false;
-            this.dataColors.Location = new System.Drawing.Point(3, 163);
-            this.dataColors.MultiSelect = false;
-            this.dataColors.Name = "dataColors";
-            this.dataColors.ReadOnly = true;
-            this.dataColors.RowHeadersVisible = false;
-            this.dataColors.RowTemplate.Height = 15;
-            this.dataColors.Size = new System.Drawing.Size(24, 274);
-            this.dataColors.TabIndex = 5;
-            // 
-            // Colors
-            // 
-            this.Colors.HeaderText = "colors";
-            this.Colors.Name = "Colors";
-            this.Colors.ReadOnly = true;
-            this.Colors.Width = 20;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 94);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Качество пробы";
-            // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label15);
+            this.tabPage1.Controls.Add(this.textBox8);
             this.tabPage1.Controls.Add(this.button7);
             this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.label11);
@@ -874,7 +710,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(580, 594);
             this.tabPage1.TabIndex = 4;
-            this.tabPage1.Text = "Адресс";
+            this.tabPage1.Text = "Адресс и особенности измерения";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // button7
@@ -1020,6 +856,191 @@
             this.textBox1.TabIndex = 17;
             this.textBox1.Text = "Россия";
             // 
+            // checkedListBoxSensors
+            // 
+            this.checkedListBoxSensors.CheckOnClick = true;
+            this.checkedListBoxSensors.FormattingEnabled = true;
+            this.checkedListBoxSensors.Location = new System.Drawing.Point(26, 163);
+            this.checkedListBoxSensors.Name = "checkedListBoxSensors";
+            this.checkedListBoxSensors.Size = new System.Drawing.Size(147, 274);
+            this.checkedListBoxSensors.TabIndex = 1;
+            this.checkedListBoxSensors.MouseUp += new System.Windows.Forms.MouseEventHandler(this.checkedListBoxSensors_MouseUp);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1, 147);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(133, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Отображаемые сенсоры";
+            // 
+            // comboBoxMask
+            // 
+            this.comboBoxMask.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMask.FormattingEnabled = true;
+            this.comboBoxMask.Location = new System.Drawing.Point(6, 27);
+            this.comboBoxMask.Name = "comboBoxMask";
+            this.comboBoxMask.Size = new System.Drawing.Size(168, 21);
+            this.comboBoxMask.TabIndex = 3;
+            this.comboBoxMask.SelectedIndexChanged += new System.EventHandler(this.comboBoxMask_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Временная маска";
+            // 
+            // panel
+            // 
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel.Controls.Add(this.comboBox1);
+            this.panel.Controls.Add(this.label7);
+            this.panel.Controls.Add(this.button5);
+            this.panel.Controls.Add(this.textBoxArea);
+            this.panel.Controls.Add(this.label6);
+            this.panel.Controls.Add(this.buttonCSV);
+            this.panel.Controls.Add(this.buttonSave);
+            this.panel.Controls.Add(this.buttonXML);
+            this.panel.Controls.Add(this.dataColors);
+            this.panel.Controls.Add(this.comboBoxMask);
+            this.panel.Controls.Add(this.label1);
+            this.panel.Controls.Add(this.checkedListBoxSensors);
+            this.panel.Controls.Add(this.label2);
+            this.panel.Location = new System.Drawing.Point(591, 34);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(179, 594);
+            this.panel.TabIndex = 5;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Зелёный",
+            "Жёлтый",
+            "Красный"});
+            this.comboBox1.Location = new System.Drawing.Point(7, 110);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(169, 21);
+            this.comboBox1.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(4, 94);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Качество пробы";
+            // 
+            // button5
+            // 
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(4, 515);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(169, 30);
+            this.button5.TabIndex = 11;
+            this.button5.Text = "Выгрузить в CSV (cp-1251)";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // textBoxArea
+            // 
+            this.textBoxArea.Location = new System.Drawing.Point(7, 71);
+            this.textBoxArea.Name = "textBoxArea";
+            this.textBoxArea.ReadOnly = true;
+            this.textBoxArea.Size = new System.Drawing.Size(167, 20);
+            this.textBoxArea.TabIndex = 10;
+            this.textBoxArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(4, 55);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(108, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Площадь отпечатка";
+            // 
+            // buttonCSV
+            // 
+            this.buttonCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCSV.Location = new System.Drawing.Point(4, 479);
+            this.buttonCSV.Name = "buttonCSV";
+            this.buttonCSV.Size = new System.Drawing.Size(169, 30);
+            this.buttonCSV.TabIndex = 8;
+            this.buttonCSV.Text = "Выгрузить в CSV (utf-8)";
+            this.buttonCSV.UseVisualStyleBackColor = true;
+            this.buttonCSV.Click += new System.EventHandler(this.buttonCSV_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Location = new System.Drawing.Point(5, 557);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(169, 30);
+            this.buttonSave.TabIndex = 7;
+            this.buttonSave.Text = "Сохранить";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonXML
+            // 
+            this.buttonXML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonXML.Location = new System.Drawing.Point(3, 443);
+            this.buttonXML.Name = "buttonXML";
+            this.buttonXML.Size = new System.Drawing.Size(170, 30);
+            this.buttonXML.TabIndex = 6;
+            this.buttonXML.Text = "Выгрузить в XML (utf-8)";
+            this.buttonXML.UseVisualStyleBackColor = true;
+            this.buttonXML.Click += new System.EventHandler(this.buttonXML_Click);
+            // 
+            // dataColors
+            // 
+            this.dataColors.AllowUserToAddRows = false;
+            this.dataColors.AllowUserToDeleteRows = false;
+            this.dataColors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataColors.ColumnHeadersVisible = false;
+            this.dataColors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Colors});
+            this.dataColors.Enabled = false;
+            this.dataColors.Location = new System.Drawing.Point(3, 163);
+            this.dataColors.MultiSelect = false;
+            this.dataColors.Name = "dataColors";
+            this.dataColors.ReadOnly = true;
+            this.dataColors.RowHeadersVisible = false;
+            this.dataColors.RowTemplate.Height = 15;
+            this.dataColors.Size = new System.Drawing.Size(24, 274);
+            this.dataColors.TabIndex = 5;
+            // 
+            // Colors
+            // 
+            this.Colors.HeaderText = "colors";
+            this.Colors.Name = "Colors";
+            this.Colors.ReadOnly = true;
+            this.Colors.Width = 20;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(10, 325);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(564, 262);
+            this.textBox8.TabIndex = 34;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(7, 309);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(262, 13);
+            this.label15.TabIndex = 35;
+            this.label15.Text = "Особенности измерения или места забора пробы";
+            // 
             // FormViewMeasure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1048,11 +1069,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericMaxMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMaxMax)).EndInit();
             this.tabInfo.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataColors)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1131,5 +1152,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBox8;
     }
 }

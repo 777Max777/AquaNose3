@@ -670,7 +670,7 @@ namespace QuadroSoft.Enose.DataAccess
                     md.DispData = new Dictionary<Sensor, Dictionary<double, double>>();
                     md.DispData.Add(sensorList[0], new Dictionary<double,double>());
                 }
-                node.Measures.Add(id, md.ToString());
+                node.Measures.Add(id, md.Name);
             }
 
             reader.Close();

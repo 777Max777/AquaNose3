@@ -164,15 +164,24 @@ namespace QuadroSoft.Enose.Graph
                 int count = treeNode.GetNodeCount(true);
                 if (count != 0)
                 {
+                    MainWindow.ClearMareker();
                     foreach (TreeNode tn in treeNode.Nodes)
                     {
-                        MessageBox.Show(Convert.ToString(tn.Tag));
+                        MeasureData mdata = Program.DataProvider.getMeasureDataByID((int)tn.Tag);
+                        MainWindow.setMarekersToMap(mdata.lng, mdata.ltt, mdata.quality, mdata.Description);
                     }
                 }
                 else
                 {
-                    MeasureData mdata = Program.DataProvider.getMeasureDataByID((int)treeView.SelectedNode.Tag);
-                    MainWindow.setMap(mdata.lng, mdata.ltt, mdata.quality);
+                    try
+                    {
+                        MeasureData mdata = Program.DataProvider.getMeasureDataByID((int)treeView.SelectedNode.Tag);
+                        MainWindow.setMarekerToMap(mdata.lng, mdata.ltt, mdata.quality, mdata.Description);
+                    }
+                    catch(Exception ex)
+                    {
+
+                    }                    
                 }
                 //FormViewMeasure f = FormViewMeasure.getFormForMeasure(Program.DataProvider.getMeasureDataByID((int)treeView.SelectedNode.Tag));
 
